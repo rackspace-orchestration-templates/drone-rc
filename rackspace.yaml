@@ -1,0 +1,68 @@
+schema-version: 1.0.0
+application-family: Testing
+application-name: Drone.io
+application-version: latest
+flavor: Single Linux server - RCv3
+flavor-weight: 1
+rackconnect: true
+reach-info:
+  tattoo: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/drone-tattoo.png
+  icon-20x20: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/drone-icon-20x20.png
+hidden_outputs:
+  - private_key
+abstract: |
+  Drone.io is a continuous integration solution for Github and BitBucket
+  repositories.
+instructions: |
+  #### Welcome to Drone
+  This will deploy a single Linux server running
+  [Drone](https://github.com/drone/drone).
+
+  #### Github Application Requirement
+  In order to login to Drone, a Github Application is required. Read the [setup
+  instructions](https://github.com/drone/drone#github) for details on this
+  process. The Application ID and Secret have to be placed in the
+  /etc/drone/drone.toml file.
+
+  By default, this template will deploy as HTTPS instead of HTTP. Be sure to
+  configure the appropriate Homepage and Callback URL using HTTPS. The use
+  of DNS names is highly recommended.
+
+  #### Logging in via SSH
+  The private key provided in the passwords section can be used to login as
+  root via SSH.  We have an article on how to use these keys with [Mac OS X and
+  Linux](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-linuxmac)
+  as well as [Windows using
+  PuTTY](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-windows).
+
+  #### Drone Configuration Options
+  Drone's configuration is controlled using the /etc/drone/drone.toml
+  file. If you do not provide your Github Application ID and Secret
+  you will need to login to the server and update these options manually.
+  After updating the configuration file, restart Drone.
+
+  #### Web Interface
+  There are many options you can configure in the web interface on your Drone
+  instance. You will want to follow the [setup
+  documentation](http://drone.readthedocs.org/en/latest/setup.html) to
+  configure the basics.
+
+  #### Drone Service
+  Drone can be controlled using the standard 'start' and 'stop' service
+  commands. You will need to restart drone if you modify the above
+  configuration in /etc/default/drone.
+
+  To restart Drone, issue these commands:
+  stop drone
+  start drone
+
+  #### SSL Configuration
+  This setup provides a self signed SSL certificate with the server's IP
+  address as the Common Name. To provide a new certificate, simply overwrite
+  the two files in /etc/drone/ssl/ with your signed certificates. Restart Drone
+  to apply the new certificate.
+user-input-required: true
+description: |
+  Single Linux server running [Drone](https://github.com/drone/drone).
+
+  This template will only function with RackConnect v3.
