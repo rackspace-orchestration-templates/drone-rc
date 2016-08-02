@@ -63,7 +63,7 @@ instructions: |
   to apply the new certificate.
 user-input-required: true
 description: |
-  ####Single Linux server - RCv3
+  #### Single Linux server - RCv3
   Single Linux server running [Drone](https://github.com/drone/drone).
 
   This template will only function with RackConnect v3.
